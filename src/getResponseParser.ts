@@ -7,6 +7,7 @@ const sanitizeResource = (
   introspectionResults: IntrospectionResult,
   resource: Resource
 ) => (data: { [key: string]: any }): any => {
+
   return Object.keys(data).reduce((acc, key) => {
     if (key.startsWith('_')) {
       return acc;
@@ -15,8 +16,10 @@ const sanitizeResource = (
     const field = (resource.type as IntrospectionObjectType).fields.find(
       f => f.name === key
     )!;
-    const type = getFinalType(field.type);
+    console.log('field', field)
 
+    const type = getFinalType(field.type);
+    console.log('type', type)
     if (type.kind !== TypeKind.OBJECT) {
       return { ...acc, [field.name]: data[field.name] };
     }
@@ -25,9 +28,10 @@ const sanitizeResource = (
     const linkedResource = introspectionResults.resources.find(
       r => r.type.name === type.name
     );
-
+    console.log('linkedResource', linkedResource)
     if (linkedResource) {
       const linkedResourceData = data[field.name];
+      console.log('linkedResourceData', linkedResourceData)
 
       if (Array.isArray(linkedResourceData)) {
         return {
@@ -53,8 +57,6 @@ const sanitizeResource = (
           : undefined
       };
     }
-    console.log('return sanitizeResource field.name', data[field.name])
-    console.log('sanitizeResource acc', { ...acc })
     return { ...acc, [field.name]: data[field.name] };
   }, {});
 };
@@ -72,6 +74,7 @@ export default (introspectionResults: IntrospectionResult) => (
     aorFetchType === GET_MANY_REFERENCE
   ) {
     console.log('response', response)
+    console.log('datasan', response.data.clients.map(sanitize))
     return {
       data: response.data.clients.map(sanitize),
       total: response.data.clients.length
