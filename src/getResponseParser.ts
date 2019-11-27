@@ -72,7 +72,7 @@ export default (introspectionResults: IntrospectionResult) => (
   ) {
     return {
       data: response.data.clients.map(sanitize),
-      total: response.data.total.aggregate.count
+      total: 100
     };
   }
 
