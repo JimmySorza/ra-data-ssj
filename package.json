@@ -1,6 +1,6 @@
 {
   "name": "ra-data-ssj",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A Prisma/GraphCMS data provider for react-admin",
   "main": "dist/index.js",
   "sideEffects": false,
