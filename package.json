@@ -1,17 +1,17 @@
 {
-  "name": "ra-data-opencrud",
-  "version": "0.0.7",
+  "name": "ra-data-ssj",
+  "version": "0.0.8",
   "description": "A Prisma/GraphCMS data provider for react-admin",
   "main": "dist/index.js",
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/weakky/ra-data-opencrud.git"
+    "url": "git+https://github.com/JimmySorza/ra-data-ssj.git"
   },
   "bugs": {
-    "url": "https://github.com/weakky/ra-data-opencrud/issues"
+    "url": "https://github.com/JimmySorza/ra-data-ssj/issues"
   },
-  "homepage": "https://github.com/weakky/ra-data-opencrud#readme",
+  "homepage": "https://github.com/JimmySorza/ra-data-ssj#readme",
   "authors": [
     "Flavian DESVERNE"
   ],

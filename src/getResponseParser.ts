@@ -71,7 +71,7 @@ export default (introspectionResults: IntrospectionResult) => (
     aorFetchType === GET_MANY_REFERENCE
   ) {
     return {
-      data: response.data.items.map(sanitize),
+      data: response.data.clients.map(sanitize),
       total: response.data.total.aggregate.count
     };
   }
