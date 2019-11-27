@@ -78,5 +78,5 @@ export default (introspectionResults: IntrospectionResult) => (
     };
   }
   console.log('data.data', data.data)
-  return { data: sanitize(data.clients) };
+  return { data: sanitize(data) };
 };
