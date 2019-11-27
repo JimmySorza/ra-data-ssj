@@ -377,6 +377,9 @@ export default (introspectionResults: IntrospectionResult) => (
 ) => {
   switch (aorFetchType) {
     case GET_LIST: {
+      console.log('resoursce', resource)
+      console.log('aorFetchType', aorFetchType)
+      console.log('params', params)
       return buildGetListVariables(introspectionResults)(
         resource,
         aorFetchType,

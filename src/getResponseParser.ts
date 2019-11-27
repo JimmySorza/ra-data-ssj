@@ -73,7 +73,7 @@ export default (introspectionResults: IntrospectionResult) => (
     console.log(response)
     return {
       data: response.data.clients.map(sanitize),
-      total: 100
+      total: response.data.clients.length()
     };
   }
 
