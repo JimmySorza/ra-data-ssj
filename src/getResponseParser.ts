@@ -76,6 +76,6 @@ export default (introspectionResults: IntrospectionResult) => (
       total: response.data.clients.length
     };
   }
-
-  return { data: sanitize(data.data) };
+console.log('data.data', data.data)
+  return { data: sanitize(data.clients) };
 };
