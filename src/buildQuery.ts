@@ -32,7 +32,7 @@ export const buildQueryFactory = () => (
     if (!queryType) {
       throw new Error(
         `No query or mutation matching aor fetch type ${aorFetchType} could be found for resource ${
-          resource.type.name
+        resource.type.name
         }`
       );
     }
@@ -53,7 +53,8 @@ export const buildQueryFactory = () => (
       aorFetchType,
       resource
     );
-
+    console.log('parseResponse', parseResponse);
+    console.log('return: query....', query, variables, parseResponse)
     return {
       query,
       variables,

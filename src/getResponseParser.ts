@@ -48,8 +48,8 @@ const sanitizeResource = (
           : undefined,
         [field.name]: linkedResourceData
           ? sanitizeResource(introspectionResults, linkedResource)(
-              data[field.name]
-            )
+            data[field.name]
+          )
           : undefined
       };
     }
@@ -70,6 +70,7 @@ export default (introspectionResults: IntrospectionResult) => (
     aorFetchType === GET_MANY ||
     aorFetchType === GET_MANY_REFERENCE
   ) {
+    console.log(response)
     return {
       data: response.data.clients.map(sanitize),
       total: 100
