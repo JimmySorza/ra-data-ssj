@@ -53,7 +53,8 @@ const sanitizeResource = (
           : undefined
       };
     }
-
+    console.log('return sanitizeResource field.name', data[field.name])
+    console.log('sanitizeResource acc', { ...acc })
     return { ...acc, [field.name]: data[field.name] };
   }, {});
 };
@@ -64,18 +65,18 @@ export default (introspectionResults: IntrospectionResult) => (
 ) => (response: { [key: string]: any }) => {
   const sanitize = sanitizeResource(introspectionResults, resource);
   const data = response.data;
-
+  console.log('sanitizeResource sanitize', sanitize)
   if (
     aorFetchType === GET_LIST ||
     aorFetchType === GET_MANY ||
     aorFetchType === GET_MANY_REFERENCE
   ) {
-    console.log(response)
+    console.log('response', response)
     return {
       data: response.data.clients.map(sanitize),
       total: response.data.clients.length
     };
   }
-console.log('data.data', data.data)
+  console.log('data.data', data.data)
   return { data: sanitize(data.clients) };
 };
